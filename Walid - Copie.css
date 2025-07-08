@@ -1,0 +1,121 @@
+/* Reset & global */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  overflow: hidden;
+  color: #fff;
+  height: 100vh;
+  position: relative;
+  font-family: 'TitilliumWebRegular', Arial, sans-serif;
+
+  margin: 0;
+  padding: 0;
+  background-image: url('bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@font-face {
+  font-family: 'TitilliumWebRegular';
+  src: url('wii/fonts/TitilliumWeb-Regular.ttf') format('truetype');
+}
+
+/* Emblem grid container */
+#emblem-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%; /* covering double to allow full diagonal movement */
+  height: 200%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 60px);
+  grid-auto-rows: 60px;
+  z-index: 1;
+}
+
+#emblem-grid .emblem {
+  width: 60px;
+  height: 60px;
+  opacity: 0.7;
+  animation: move-diagonal 20s linear infinite;
+}
+
+@keyframes move-diagonal {
+  from { transform: translate(100vw, -100vh); }
+  to { transform: translate(-100vw, 100vh); }
+}
+
+/* Header */
+header {
+  position: relative;
+  z-index: 10;
+  padding: 1rem 0;
+  background-color: rgba(23,157,195,0.8);
+}
+.logo { max-width: 100%; height: auto; }
+
+/* Project Icon */
+.project-icons {
+  position: relative;
+  z-index: 10;
+  margin: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-icon {
+  width: 395px;
+  height: 187px;
+  transition: transform 0.3s ease;
+}
+.project-icon:hover { transform: scale(1.1); }
+
+/* Footer */
+footer {
+  position: relative;
+  z-index: 10;
+  padding: 1rem;
+  background-color: rgba(190,69,36,0.8);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: center;
+  font-family: 'TitilliumWebRegular', Arial, sans-serif;
+}
+
+b1 {
+  font-family: 'TitilliumWebRegular', Arial, sans-serif;
+  text-align: center;
+  font-weight: bold; /* Texte en gras */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 150%;
+}
+
+.centered-text {
+  display: flex;
+  justify-content: center;  /* Centre horizontalement */
+  text-align: center;       /* Centre le texte à l’intérieur */
+}
+
+.dm-discord-walid {
+  position: relative;
+  max-width: 850px;        /* Limite la largeur */
+  padding: 12px 16px;      /* Un peu d'espace intérieur */
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 8px;      /* Coins arrondis */
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 auto;          /* Centre horizontalement */
+  font-size: 0.85rem;
+  z-index: 10;                 /* Au-dessus des emblèmes (z-index: 1) */
+}
+
+star {
+	color: #FFB30F;
+	z-index: 10;                 /* Au-dessus des emblèmes (z-index: 1) */
+}
+
+/* Responsive */
+@media (max-width: 768px) { .project-icon { width: 140px; } }
+@media (max-width: 480px) { .project-icon { width: 110px; } footer { font-size: 0.75rem; } }
